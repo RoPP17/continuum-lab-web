@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="185 345 725 260" fill="none" stroke="#e8f6ff" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Continuum Lab">
+  <g transform="translate(10 0)">
+    <path class="cl-stroke" stroke-width="16" d="M210 540C185 530 175 490 205 450C245 400 340 360 480 365C610 370 720 405 835 450C740 458 620 460 520 472C410 485 310 515 255 550C235 560 215 555 210 540Z"/>
+    <path class="cl-stroke" stroke-width="8" opacity=".85" d="M230 465C280 415 380 380 500 385C610 390 715 425 825 455"/>
+    <path class="cl-stroke" stroke-width="12" d="M330 490C410 440 500 445 530 480C480 500 400 515 330 490Z"/>
+    <path class="cl-stroke" stroke-width="9" stroke="#38e5c0" d="M360 515C470 510 600 485 805 465"/>
+    <path class="cl-stroke" stroke-width="8" stroke="#38e5c0" d="M400 540C490 535 620 505 780 480"/>
+    <path class="cl-stroke" stroke-width="7" stroke="#38e5c0" d="M440 565C520 558 630 528 755 498"/>
+    <path class="cl-stroke" stroke-width="6" stroke="#38e5c0" d="M470 590C540 580 635 550 725 520"/>
+  </g>
+</svg>

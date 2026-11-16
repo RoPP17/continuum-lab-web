@@ -1,0 +1,43 @@
+\documentclass[11pt,a4paper]{engineering_report}
+
+\institucion{Departamento de Ingenieria Mecanica}
+\facultad{Area de Diseno Mecanico y Simulacion CAE}
+\asignatura{Elementos de Maquinas / Resistencia de Materiales}
+\codigo{MEM-CAE-01}
+\titulo{Analisis Estructural y Dimensionamiento de Transmision por Engranes}
+\autor{Estudiante / Integrantes del Proyecto}
+\periodo{Periodo Academico 2026}
+\logotipo{logo_studio.png}
+
+\begin{document}
+\makeengineeringcover
+
+\section{Resumen Ejecutivo}
+Este informe presenta la memoria de calculo analitico y la verificacion dimensional de una transmision mecanica bajo normativa ISO 53, DIN 6885 e ISO 281.
+
+\begin{sciformula}{Ecuacion de Vida Nominal de Rodamientos (ISO 281)}
+\[
+L_{10h} = \frac{10^6}{60\,n} \left( \frac{C}{P_{\mathrm{eq}}} \right)^p, \qquad p = 3 \text{ (bolas)}
+\]
+\end{sciformula}
+
+\section{Tabla de Resultados Normalizados}
+\begin{table}[H]
+\centering
+\caption{Resumen dimensional y de vida util verificada.}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Componente} & \textbf{Norma} & \textbf{Parametro Critico} & \textbf{Valor} \\
+\midrule
+Pinon recto $z_1=20$ & ISO 53 & Diametro primitivo $d_1$ & $40.00\text{ mm}$ \\
+Ajuste eje-buje & ISO 286 & Tolerancia $\mathrm{H7/h6}$ & $+25 / -13\,\mu\text{m}$ \\
+Rodamiento 6205 & ISO 281 & Vida nominal $L_{10h}$ & $> 25{,}000\text{ h}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{scibox}{Conclusion Tecnica}
+Todos los coeficientes de seguridad superan el umbral minimo requerido ($n_s \ge 2.0$), manteniendo compatibilidad directa con la manufactura convencional.
+\end{scibox}
+
+\end{document}

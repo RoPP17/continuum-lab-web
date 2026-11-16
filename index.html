@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Continuum Lab</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      name="description"
+      content="Multi-part 3D CAD assemblies, technical reports, scientific articles, Python/MATLAB numerical solvers, and interactive multi-physics simulators."
+    />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" href="./assets/brand/continuum-mark.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./assets/brand/icon-512.png" />
+    <link rel="stylesheet" href="./vendor/fonts/fonts.css" />
+    <link rel="stylesheet" href="./vendor/katex/katex.min.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Fast, Clean Entry Animation -->
+    <div id="entryIntro" class="entry-intro" role="status" aria-label="Loading workspace">
+      <div class="entry-inner">
+        <svg class="entry-logo-svg" viewBox="170 330 700 285" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <g transform="translate(10 0)">
+            <path class="entry-stroke primary" stroke="#e8f6ff" stroke-width="16" d="M210 540C185 530 175 490 205 450C245 400 340 360 480 365C610 370 720 405 835 450C740 458 620 460 520 472C410 485 310 515 255 550C235 560 215 555 210 540Z"/>
+            <path class="entry-stroke secondary" stroke="#e8f6ff" stroke-width="8" opacity=".82" d="M230 465C280 415 380 380 500 385C610 390 715 425 825 455"/>
+            <path class="entry-stroke secondary" stroke="#e8f6ff" stroke-width="12" d="M330 490C410 440 500 445 530 480C480 500 400 515 330 490Z"/>
+            <path class="entry-stroke stream" stroke="#38e5c0" stroke-width="9" d="M360 515C470 510 600 485 805 465"/>
+            <path class="entry-stroke stream" stroke="#38e5c0" stroke-width="8" d="M400 540C490 535 620 505 780 480"/>
+            <path class="entry-stroke stream" stroke="#38e5c0" stroke-width="7" d="M440 565C520 558 630 528 755 498"/>
+            <path class="entry-stroke stream" stroke="#38e5c0" stroke-width="6" d="M470 590C540 580 635 550 725 520"/>
+          </g>
+        </svg>
+        <div class="entry-sweep-track">
+          <div class="entry-sweep-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ambient-backdrop"></div>
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+
+    <!-- Top Navigation: Brand name placed exclusively in title and header -->
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a href="#models" class="brand-link">
+          <img src="./assets/brand/continuum-mark.svg" alt="" class="brand-mark" />
+          <span>Continuum Lab</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#models" data-i18n="nav_models">3D CAD</a>
+          <a href="#solve" data-i18n="nav_solve">Solutions</a>
+          <a href="#vault" data-i18n="nav_vault">Vault</a>
+          <a href="#sims" data-i18n="nav_sims">Simulators</a>
+          <a href="#reviews" data-i18n="nav_reviews">Results</a>
+          <a href="#quote" data-i18n="nav_quote">Quote</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a
+            href="https://wa.me/593961666180"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ws-header-pill"
+            data-i18n="nav_whatsapp"
+          >
+            WhatsApp +593 96 166 6180
+          </a>
+          <button id="langToggle" class="lang-toggle" type="button">EN | ES</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero & Top 4 Flagship 3D CAD Stage -->
+      <section id="models" class="hero-section">
+        <div class="container">
+          <div class="hero-top-grid">
+            <div>
+              <div class="ec-pill">
+                <span class="ec-dot"></span>
+                <span data-i18n="hero_pill">AVAILABLE NOW · 2 CUSTOM PROJECT SLOTS THIS WEEK · DIRECT DELIVERY</span>
+              </div>
+
+              <h1 class="hero-title" data-i18n="hero_title">
+                Complex engineering projects, reports, and 3D CAD—solved to perfection.
+              </h1>
+
+              <p class="hero-subtitle" data-i18n="hero_subtitle">
+                Multi-part 3D assemblies, IEEE/ASME technical papers, Python & MATLAB numerical solvers, and publication-grade LaTeX deliverables. Built cleanly, verified numerically, and delivered worldwide.
+              </p>
+
+              <div class="hero-cta-row">
+                <a href="#vault" class="btn btn-primary" data-i18n="hero_cta_vault">
+                  Browse Resource Vault ($4+)
+                </a>
+                <a
+                  href="https://wa.me/593961666180"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-amber"
+                  data-i18n="hero_cta_ws"
+                >
+                  Start a Project on WhatsApp
+                </a>
+              </div>
+
+              <div class="hero-proof-row">
+                <span><strong>0.000 cm³</strong> ISO / DIN</span>
+                <span><strong>CAD · Reports · CFD · LaTeX</strong></span>
+                <span><strong data-i18n="hero_proof_3">Worldwide · Direct WhatsApp</strong></span>
+              </div>
+            </div>
+
+            <div class="vault-chassis">
+              <div class="vault-toolbar">
+                <div class="vault-active-name">
+                  <span class="live-pulse"></span>
+                  <span id="cadActiveName">5-DOF Bionic Hand</span>
+                </div>
+
+                <div class="toolbar-clusters">
+                  <div class="toolbar-group" role="group" aria-label="Render mode">
+                    <button type="button" class="tool-btn active" data-cad-mode="shaded" data-i18n="mode_shaded">
+                      Shaded
+                    </button>
+                    <button type="button" class="tool-btn" data-cad-mode="xray" data-i18n="mode_xray">
+                      X-Ray
+                    </button>
+                    <button type="button" class="tool-btn" data-cad-mode="wireframe" data-i18n="mode_wireframe">
+                      Wireframe
+                    </button>
+                    <button type="button" class="tool-btn" data-cad-mode="section" data-i18n="mode_section">
+                      Section
+                    </button>
+                  </div>
+
+                  <div class="toolbar-group" role="group" aria-label="Camera views">
+                    <button type="button" class="tool-btn active" data-cad-cam="iso" data-i18n="view_iso">ISO</button>
+                    <button type="button" class="tool-btn" data-cad-cam="front" data-i18n="view_front">Front</button>
+                    <button type="button" class="tool-btn" data-cad-cam="side" data-i18n="view_side">Side</button>
+                    <button type="button" class="tool-btn" data-cad-cam="top" data-i18n="view_top">Top</button>
+                  </div>
+
+                  <button id="cadSpinBtn" type="button" class="tool-btn active" data-i18n="view_spin_pause">
+                    Pause
+                  </button>
+                </div>
+              </div>
+
+              <div id="cadVaultContainer" class="vault-stage-wrap">
+                <img
+                  src="./assets/brand/continuum-mark.svg"
+                  alt=""
+                  class="stage-brand-watermark"
+                  aria-hidden="true"
+                />
+                <div id="cadLoadingOverlay" class="vault-loading-overlay visible" data-i18n="cad_loading">
+                  Loading assembly...
+                </div>
+                <div class="stage-hud-badges">
+                  <span class="stage-float-chip" data-i18n="stage_badge_1">0.000 cm³ Clearance Verified</span>
+                  <span class="stage-float-chip amber" data-i18n="stage_badge_2">Live PBR B-Rep Inspection</span>
+                </div>
+              </div>
+
+              <div class="vault-telemetry-strip">
+                <div class="tele-cell">
+                  <span class="tele-k" data-i18n="tele_parts">Parts</span>
+                  <span id="cadTeleParts" class="tele-v">--</span>
+                </div>
+                <div class="tele-cell">
+                  <span class="tele-k" data-i18n="tele_tris">Mesh</span>
+                  <span id="cadTeleTris" class="tele-v">--</span>
+                </div>
+                <div class="tele-cell">
+                  <span class="tele-k" data-i18n="tele_std">Standard</span>
+                  <span id="cadTeleStd" class="tele-v">--</span>
+                </div>
+                <div class="tele-cell">
+                  <span class="tele-k" data-i18n="tele_status">Clearance</span>
+                  <span id="cadTeleIntf" class="tele-v ok">--</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top 4 Flagship CAD Model Selector Dock -->
+          <div class="cad-model-dock-wrap">
+            <div class="dock-header-label" data-i18n="viewer_label">Flagship 3D Assemblies</div>
+            <div id="cadModelSelector" class="cad-model-dock" role="tablist"></div>
+          </div>
+
+          <!-- Credibility & Impact Metrics Ribbon -->
+          <div id="impactStatsGrid" class="impact-ribbon reveal"></div>
+        </div>
+      </section>
+
+      <!-- Animated Capabilities Ticker -->
+      <div class="marquee-strip" aria-hidden="true">
+        <div class="marquee-track">
+          <span class="mq-item"><span class="mq-dot"></span>3D CAD & STEP ASSEMBLIES</span>
+          <span class="mq-item"><span class="mq-dot"></span>IEEE / ASME SCIENTIFIC PAPERS</span>
+          <span class="mq-item"><span class="mq-dot"></span>TECHNICAL REPORTS & THESES</span>
+          <span class="mq-item"><span class="mq-dot"></span>CFD LATTICE BOLTZMANN</span>
+          <span class="mq-item"><span class="mq-dot"></span>SEISMIC 2-DOF TMD DAMPING</span>
+          <span class="mq-item"><span class="mq-dot"></span>PYTHON, MATLAB & PYQT GUIS</span>
+          <span class="mq-item"><span class="mq-dot"></span>COMPILED LATEX & 300 DPI PLOTS</span>
+          <span class="mq-item"><span class="mq-dot"></span>WORLDWIDE DIRECT DELIVERY</span>
+          <span class="mq-item"><span class="mq-dot"></span>3D CAD & STEP ASSEMBLIES</span>
+          <span class="mq-item"><span class="mq-dot"></span>IEEE / ASME SCIENTIFIC PAPERS</span>
+          <span class="mq-item"><span class="mq-dot"></span>TECHNICAL REPORTS & THESES</span>
+          <span class="mq-item"><span class="mq-dot"></span>CFD LATTICE BOLTZMANN</span>
+          <span class="mq-item"><span class="mq-dot"></span>SEISMIC 2-DOF TMD DAMPING</span>
+          <span class="mq-item"><span class="mq-dot"></span>PYTHON, MATLAB & PYQT GUIS</span>
+          <span class="mq-item"><span class="mq-dot"></span>COMPILED LATEX & 300 DPI PLOTS</span>
+          <span class="mq-item"><span class="mq-dot"></span>WORLDWIDE DIRECT DELIVERY</span>
+        </div>
+      </div>
+
+      <!-- Expanded Capabilities Grid (8 Service Verticals) -->
+      <section id="solve" class="section-block">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2 class="section-title" data-i18n="solve_title">Everything We Build & Solve</h2>
+            <p class="section-lead" data-i18n="solve_lead">
+              From urgent university deliverables and IEEE-style scientific papers to multi-body CAD assemblies and custom simulation pipelines.
+            </p>
+          </div>
+          <div id="solveGrid" class="solve-grid"></div>
+        </div>
+      </section>
+
+      <!-- Verified Resource Vault (8 Downloadable Packs) -->
+      <section id="vault" class="section-block">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2 class="section-title" data-i18n="vault_title">Verified Engineering Vault</h2>
+            <p class="section-lead" data-i18n="vault_lead">
+              Battle-tested scripts, simulation suites, and compiled LaTeX templates ready to download right away. Inspect plots, equations, and sample code first.
+            </p>
+          </div>
+          <div id="packsGrid" class="packs-grid"></div>
+        </div>
+      </section>
+
+      <!-- Live 5-Mode Multi-Physics Simulators with Compiled KaTeX -->
+      <section id="sims" class="section-block">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2 class="section-title" data-i18n="sims_title">Interactive Multi-Physics Simulators</h2>
+            <p class="section-lead" data-i18n="sims_lead">
+              Test live 60 FPS engineering kernels right in your browser—beam stress & deflection, CFD Kármán vortices, seismic TMD damping, Fourier DFT, and RK4 chaos.
+            </p>
+          </div>
+
+          <div id="simEqBanner" class="sim-eq-banner reveal"></div>
+
+          <div class="workbench-chassis reveal">
+            <div class="wb-left">
+              <div class="wb-tabs" role="tablist">
+                <button type="button" class="wb-tab active" data-sim="beam" data-i18n="tab_beam">
+                  Beams & Stress
+                </button>
+                <button type="button" class="wb-tab" data-sim="cfd" data-i18n="tab_cfd">
+                  CFD Vortex Wake
+                </button>
+                <button type="button" class="wb-tab" data-sim="tmd" data-i18n="tab_tmd">
+                  Seismic TMD
+                </button>
+                <button type="button" class="wb-tab" data-sim="fourier" data-i18n="tab_fourier">
+                  Fourier Epicycles
+                </button>
+                <button type="button" class="wb-tab" data-sim="chaos" data-i18n="tab_chaos">
+                  RK4 Chaos
+                </button>
+              </div>
+
+              <div class="wb-canvas-wrap">
+                <canvas id="simCanvas"></canvas>
+              </div>
+
+              <div class="wb-tele-grid">
+                <div class="wb-tele-item">
+                  <span id="teleK1" class="tele-k">--</span>
+                  <span id="teleV1" class="tele-v">--</span>
+                </div>
+                <div class="wb-tele-item">
+                  <span id="teleK2" class="tele-k">--</span>
+                  <span id="teleV2" class="tele-v">--</span>
+                </div>
+                <div class="wb-tele-item">
+                  <span id="teleK3" class="tele-k">--</span>
+                  <span id="teleV3" class="tele-v">--</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="wb-right">
+              <div>
+                <!-- 1) Beam Solver Controls -->
+                <div id="ctrlBeam" class="ctrl-panel">
+                  <div class="ctrl-row">
+                    <div class="ctrl-head">
+                      <span data-i18n="ctrl_beam_load">Point Load P (kN)</span>
+                      <span id="beamPVal">24 kN</span>
+                    </div>
+                    <input id="beamPInput" type="range" min="5" max="80" step="1" value="24" />
+                  </div>
+
+                  <div class="ctrl-row">
+                    <div class="ctrl-head">
+                      <span data-i18n="ctrl_beam_pos">Position a / L</span>
+                      <span id="beamPosVal">0.40</span>
+                    </div>
+                    <input id="beamPosInput" type="range" min="0.1" max="0.9" step="0.01" value="0.40" />
+                  </div>
+
+                  <div class="ctrl-row">
+                    <div class="ctrl-head">
+                      <span data-i18n="ctrl_beam_len">Span Length L (m)</span>
+                      <span id="beamLVal">6.0 m</span>
+                    </div>
+                    <input id="beamLInput" type="range" min="2" max="12" step="0.5" value="6.0" />
+                  </div>
+
+                  <p class="ctrl-hint" data-i18n="ctrl_beam_hint">
+                    Drag horizontally along the beam to relocate load P and inspect live shear, moment, and deflection.
+                  </p>
+                </div>
+
+                <!-- 2) CFD Von Karman Controls -->
+                <div id="ctrlCfd" class="ctrl-panel hidden">
+                  <div class="ctrl-row">
+                    <div class="ctrl-head">
+                      <span data-i18n="ctrl_cfd_re">Reynolds Number Re</span>
+                      <span id="cfdReVal">180</span>
+                    </div>
+                    <input id="cfdReInput" type="range" min="20" max="300" step="5" value="180" />
+                  </div>
+
+                  <div class="ctrl-row">
+                    <div class="ctrl-head">
+                      <span data-i18n="ctrl_cfd_speed">Freestream Velocity U∞</span>
+                      <span id="cfdSpeedVal">1.35 m/s</span>
+                    </div>
+                    <input id="cfdSpeedInput" type="range" min="0.6" max="2.4" step="0.05" value="1.35" />
+                  </div>
+
+                  <p class="ctrl-hint" data-i18n="ctrl_cfd_hint">
+                    Raise Re above 47 to trigger Von Kármán vortex shedding, or drag vertically inside the tunnel to move the cylinder.
+                  </p>
+                </div>
+
+                <!-- 3) Seismic TMD Controls -->
+                <div id="ctrlTmd" class="ctrl-panel hidden">
+                  <div class="ctrl-row">
+                    <div class="ctrl-head">
+                      <span data-i18n="ctrl_tmd_mu">Damper Mass Ratio μ</span>
+                      <span id="tmdMuVal">0.040</span>
+                    </div>
+                    <input id="tmdMuInput" type="range" min="0.01" max="0.10" step="0.005" value="0.04" />
+                  </div>
+
+                  <div class="ctrl-row">
+                    <div class="ctrl-head">
+                      <span data-i18n="ctrl_tmd_freq">Excitation Ratio ω / ωₙ</span>
+                      <span id="tmdFreqVal">1.00</span>
+                    </div>
+                    <input id="tmdFreqInput" type="range" min="0.70" max="1.30" step="0.02" value="1.00" />
+                  </div>
+
+                  <p class="ctrl-hint" data-i18n="ctrl_tmd_hint">
+                    Compare uncontrolled resonance against Den Hartog optimal TMD suppression. Click inside the canvas for a seismic shock.
+                  </p>
+                </div>
+
+                <!-- 4) Fourier Controls -->
+                <div id="ctrlFourier" class="ctrl-panel hidden">
+                  <div class="ctrl-row">
+                    <div class="ctrl-head">
+                      <span data-i18n="ctrl_fourier_n">Harmonics N</span>
+                      <span id="fourierNVal">42</span>
+                    </div>
+                    <input id="fourierNInput" type="range" min="3" max="120" step="1" value="42" />
+                  </div>
+
+                  <div class="ctrl-row">
+                    <div class="ctrl-head">
+                      <span data-i18n="ctrl_fourier_presets">Preset Geometry</span>
+                    </div>
+                    <div class="preset-row">
+                      <button type="button" class="preset-btn active" data-preset="gear" data-i18n="preset_gear">
+                        Gear
+                      </button>
+                      <button type="button" class="preset-btn" data-preset="airfoil" data-i18n="preset_airfoil">
+                        Airfoil
+                      </button>
+                      <button type="button" class="preset-btn" data-preset="square" data-i18n="preset_square">
+                        Square
+                      </button>
+                    </div>
+                  </div>
+
+                  <p class="ctrl-hint" data-i18n="ctrl_fourier_hint">
+                    Select a mechanical profile or draw any closed loop inside the canvas to synthesize live epicycles.
+                  </p>
+                </div>
+
+                <!-- 5) RK4 Chaos Controls -->
+                <div id="ctrlChaos" class="ctrl-panel hidden">
+                  <div class="ctrl-row">
+                    <div class="ctrl-head">
+                      <span data-i18n="ctrl_chaos_delta">Perturbation Δθ₂</span>
+                      <span id="chaosDeltaVal">0.005 rad</span>
+                    </div>
+                    <input id="chaosDeltaInput" type="range" min="0.001" max="0.05" step="0.001" value="0.005" />
+                  </div>
+
+                  <p class="ctrl-hint" data-i18n="ctrl_chaos_hint">
+                    Inspect exponential trajectory divergence between two nearly identical double pendulums.
+                  </p>
+                </div>
+              </div>
+
+              <button id="wbResetBtn" type="button" class="btn btn-secondary" data-i18n="wb_reset">
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social Proof & Risk-Reversal Guarantees -->
+      <section id="reviews" class="section-block">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2 class="section-title" data-i18n="reviews_title">Verified Results & Client Feedback</h2>
+            <p class="section-lead" data-i18n="reviews_lead">
+              Used by mechanical engineering students, graduate researchers, and design teams who need clean code, sound math, and zero last-minute surprises.
+            </p>
+          </div>
+
+          <div id="reviewsGrid" class="reviews-grid"></div>
+
+          <div class="guarantees-strip reveal">
+            <article class="guarantee-card">
+              <h3 data-i18n="guar_1_title">Verified Compilation Guarantee</h3>
+              <p data-i18n="guar_1_desc">
+                Every script, equation, LaTeX PDF, and 3D STEP file is tested end-to-end before handoff.
+              </p>
+            </article>
+            <article class="guarantee-card">
+              <h3 data-i18n="guar_2_title">Preview & Revisions Included</h3>
+              <p data-i18n="guar_2_desc">
+                Check live screenshots, equations, or outputs first—and request adjustments until it matches your rubric.
+              </p>
+            </article>
+            <article class="guarantee-card">
+              <h3 data-i18n="guar_3_title">Direct Response & Milestone Check-ins</h3>
+              <p data-i18n="guar_3_desc">
+                Talk directly to the engineer executing your project on WhatsApp—no automated ticket bots.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Instant Quote Builder & Global Direct Contact -->
+      <section id="quote" class="section-block">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2 class="section-title" data-i18n="quote_title">Get an Instant Estimate</h2>
+            <p class="section-lead" data-i18n="quote_lead">
+              Transparent student-friendly pricing with global digital delivery. Configure your scope and send it directly via WhatsApp (+593 96 166 6180).
+            </p>
+          </div>
+
+          <div class="quote-grid">
+            <div class="quote-form reveal">
+              <div class="field-group">
+                <label for="quoteService" data-i18n="quote_service_label">What do you need delivered?</label>
+                <select id="quoteService">
+                  <option value="cad" data-i18n="srv_cad">3D CAD Assembly + ISO Drawings + Calculations ($10 base)</option>
+                  <option value="report" data-i18n="srv_report">Technical Report / IEEE Article / Thesis ($7 base)</option>
+                  <option value="solver" data-i18n="srv_solver">Python / MATLAB / PyQt / Excel Tool ($8 base)</option>
+                  <option value="cfd" data-i18n="srv_cfd">CFD / FEA / Multiphysics Simulation ($9 base)</option>
+                  <option value="latex" data-i18n="srv_latex">LaTeX Typesetting + Editorial Figures ($5 base)</option>
+                  <option value="video" data-i18n="srv_video">Kinematic 3D Animation / Walkthrough ($10 base)</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label for="quoteTier" data-i18n="quote_tier_label">Complexity tier</label>
+                <select id="quoteTier">
+                  <option value="standard" data-i18n="tier_standard">Standard / Homework Scope (1.0x)</option>
+                  <option value="advanced" data-i18n="tier_advanced">Multi-Part / Parametric Scope (1.5x)</option>
+                  <option value="production" data-i18n="tier_production">Full Capstone + Analysis + Report (2.2x)</option>
+                </select>
+              </div>
+
+              <label class="check-row" for="quoteRush">
+                <input id="quoteRush" type="checkbox" />
+                <span data-i18n="quote_rush_label">24h–48h Priority Rush (+35%)</span>
+              </label>
+
+              <div class="field-group" style="margin-bottom: 0">
+                <label for="quoteNotes" data-i18n="quote_notes_label">Brief description & deadline</label>
+                <textarea
+                  id="quoteNotes"
+                  rows="3"
+                  maxlength="500"
+                  data-i18n-ph="quote_notes_ph"
+                  placeholder="E.g., Two-stage helical gearbox sizing with SKF bearings, CFD validation, and compiled LaTeX report..."
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="quote-summary reveal">
+              <span class="dock-header-label" data-i18n="quote_estimate_label">Estimated investment</span>
+              <div id="quotePrice" class="quote-price-display">$10 USD</div>
+              <p id="quoteEta" class="quote-eta">Estimated turnaround: 2 days</p>
+              <pre id="quotePreview" class="quote-preview-box"></pre>
+
+              <div class="quote-cta-row">
+                <a
+                  id="whatsappQuoteBtn"
+                  href="https://wa.me/593961666180"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary"
+                  data-i18n="quote_ws_cta"
+                >
+                  Send via WhatsApp (+593 96 166 6180)
+                </a>
+                <button id="quoteCheckoutBtn" type="button" class="btn btn-amber" data-i18n="quote_pay_cta">
+                  Payment Options
+                </button>
+                <button id="copyBriefBtn" type="button" class="btn btn-secondary" data-i18n="quote_copy">
+                  Copy Brief
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="payment-methods-strip reveal">
+            <span class="pay-pill ok" data-i18n="trust_ssl">Self-Hosted Assets · Zero Trackers · Strict CSP</span>
+            <span class="pay-pill" data-i18n="trust_payments">Visa / Mastercard / PayPal · Wise · Local Bank / Deuna!</span>
+            <a href="./vendor/licenses/KaTeX-LICENSE.txt" target="_blank" rel="noopener noreferrer" class="pay-pill license" data-i18n="trust_license">
+              MIT &amp; OFL-1.1 Notices
+            </a>
+          </div>
+
+          <div class="contact-band reveal">
+            <div>
+              <h3 data-i18n="contact_band_title">Facing a tough deadline or stuck on a simulation?</h3>
+              <p data-i18n="contact_band_desc">
+                Worldwide direct support · Phone &amp; WhatsApp +593 96 166 6180 (096 166 6180). Send your prompt, CAD files, or dataset now.
+              </p>
+            </div>
+            <a
+              href="https://wa.me/593961666180"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-amber"
+              data-i18n="contact_band_btn"
+            >
+              Message Now · +593 96 166 6180
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span data-i18n="footer_left">Direct Engineering Line · WhatsApp +593 96 166 6180 / 096 166 6180 · Worldwide Delivery</span>
+        <span data-i18n="footer_right">3D CAD · Technical Reports · Scientific Papers · Python · MATLAB · LaTeX</span>
+      </div>
+      <div class="container footer-compliance">
+        <span data-i18n="footer_terms">Technical deliverables &amp; reference kits · MIT / OFL-1.1 notices · Academic Integrity Policy</span>
+      </div>
+    </footer>
+
+    <!-- Floating Quick-Action WhatsApp Conversion Pill -->
+    <a
+      href="https://wa.me/593961666180"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="floating-ws-cta"
+      aria-label="WhatsApp +593 96 166 6180"
+    >
+      <span class="ws-ping"></span>
+      <span data-i18n="floating_ws">WhatsApp Now · 2 Slots Open</span>
+    </a>
+
+    <!-- Pack Preview & Compiled Equations Modal -->
+    <div id="packPreviewModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-card">
+        <div class="modal-head">
+          <h3 id="modalPackTitle" class="modal-title">Verified Archive Inspector</h3>
+          <button id="modalCloseBtn" type="button" class="modal-close-btn" data-i18n="modal_close">
+            Close
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div>
+            <img id="modalPreviewImg" class="modal-preview-img" src="" alt="" />
+            <div class="dock-header-label" style="margin-top: 12px" data-i18n="modal_eq_title">
+              Compiled governing model
+            </div>
+            <div id="modalEqBox" class="modal-eq-box"></div>
+          </div>
+
+          <div>
+            <p id="modalPackDesc" style="margin: 0 0 14px; color: var(--text-soft); font-size: 0.9rem"></p>
+            <div class="dock-header-label" data-i18n="modal_files_title">Included files</div>
+            <ul id="modalFilesList" class="modal-files-list"></ul>
+            <div id="modalCodeLabel" class="dock-header-label"></div>
+            <pre id="modalCodeSnippet" class="modal-code-box"></pre>
+          </div>
+        </div>
+
+        <div class="modal-foot">
+          <div id="modalPackPrice" class="pack-price">$7 <small>USD</small></div>
+          <div class="modal-foot-actions">
+            <button id="modalCheckoutBtn" type="button" class="btn btn-primary" data-i18n="btn_buy_pack">
+              Get Pack
+            </button>
+            <a id="modalDownloadBtn" href="#" download class="btn btn-secondary" data-i18n="modal_dl_btn">
+              Download ZIP
+            </a>
+            <a
+              id="modalWsBtn"
+              href="https://wa.me/593961666180"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-amber"
+              data-i18n="modal_ws_btn"
+            >
+              Ask on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Structured Payment & Checkout Modal -->
+    <div id="checkoutModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-card modal-card-checkout">
+        <div class="modal-head">
+          <div>
+            <h3 class="modal-title" data-i18n="checkout_title">Structured Checkout &amp; Delivery</h3>
+            <p class="checkout-sub" data-i18n="checkout_subtitle">
+              Select a verified payment channel to receive your payment link, receipt, and engineering files.
+            </p>
+          </div>
+          <button id="checkoutCloseBtn" type="button" class="modal-close-btn" data-i18n="modal_close">
+            Close
+          </button>
+        </div>
+
+        <div class="checkout-body">
+          <div class="checkout-order-box">
+            <div>
+              <span class="dock-header-label" style="margin-bottom: 4px" data-i18n="checkout_item_label">Selected order</span>
+              <div id="checkoutItemTitle" class="checkout-item-title">--</div>
+              <div id="checkoutItemMeta" class="checkout-item-meta">--</div>
+            </div>
+            <div id="checkoutPrice" class="pack-price">$0 <small>USD</small></div>
+          </div>
+
+          <span class="dock-header-label" style="margin-top: 16px" data-i18n="checkout_method_label">Payment method</span>
+          <div class="pay-tabs" role="tablist">
+            <button type="button" class="pay-tab active" role="tab" aria-selected="true" data-pay-method="card_paypal" data-i18n="pay_card_tab">
+              Card / PayPal / Wise
+            </button>
+            <button type="button" class="pay-tab" role="tab" aria-selected="false" data-pay-method="bank_ecuador" data-i18n="pay_ec_tab">
+              Transfer / Deuna!
+            </button>
+            <button type="button" class="pay-tab" role="tab" aria-selected="false" data-pay-method="whatsapp_direct" data-i18n="pay_ws_tab">
+              50% Milestone Escrow
+            </button>
+          </div>
+
+          <div class="pay-steps-box">
+            <h4 id="checkoutMethodTitle" class="pay-method-title">--</h4>
+            <p id="checkoutMethodDesc" class="pay-method-desc">--</p>
+            <p id="checkoutMethodSteps" class="pay-method-steps">--</p>
+          </div>
+
+          <div class="field-group" style="margin: 14px 0 8px">
+            <label for="checkoutRefInput" data-i18n="checkout_ref_label">Delivery email or project reference (optional)</label>
+            <input
+              id="checkoutRefInput"
+              type="text"
+              maxlength="120"
+              autocomplete="off"
+              data-i18n-ph="checkout_ref_ph"
+              placeholder="E.g., name@university.edu or MECH-302 Gearbox"
+            />
+          </div>
+
+          <p class="checkout-security-note" data-i18n="checkout_security_note">
+            Security notice: zero raw card inputs or bank credentials are collected on this page. Payments use single-use verified links.
+          </p>
+        </div>
+
+        <div class="modal-foot">
+          <a
+            id="checkoutDirectZipBtn"
+            href="#"
+            download
+            class="btn btn-secondary"
+            data-i18n="checkout_sample_dl_btn"
+          >
+            Download Verified ZIP
+          </a>
+          <a
+            id="checkoutConfirmWsBtn"
+            href="https://wa.me/593961666180"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            data-i18n="checkout_ws_pay_btn"
+          >
+            Request Verified Payment Link
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="./vendor/katex/katex.min.js"></script>
+    <script src="./vendor/katex/auto-render.min.js"></script>
+    <script src="./vendor/three/three.min.js"></script>
+    <script src="./vendor/three/OrbitControls.js"></script>
+    <script src="./assets/meshes/cad_meshes_bundle.js"></script>
+    <script src="./config.js"></script>
+    <script src="./i18n.js"></script>
+    <script src="./sims.js"></script>
+    <script src="./cad_vault.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

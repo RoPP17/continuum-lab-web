@@ -1,0 +1,131 @@
+% =============================================================================
+% ENGINEERING THEME PACKAGE — ESTILO EDITORIAL CIENTIFICO SOBRIO
+% =============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{engineering_theme}[2026/11/01 v1.0 Paquete Editorial Sobrio]
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{mathptmx}
+\RequirePackage{helvet}
+\RequirePackage[spanish,es-tabla,es-nodecimaldot,es-noshorthands]{babel}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{amsmath,amssymb,amsthm,mathtools}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{fancyhdr}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning}
+\RequirePackage{float}
+\RequirePackage{titlesec}
+\RequirePackage{setspace}
+\RequirePackage{microtype}
+\RequirePackage{listings}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{hyperref}
+
+\definecolor{AcentoEditorial}{HTML}{1F4E79}
+\definecolor{AcentoSecundario}{HTML}{990000}
+\definecolor{NegroPuro}{HTML}{000000}
+\definecolor{GrisTexto}{HTML}{222222}
+\definecolor{GrisBorde}{HTML}{444444}
+\definecolor{GrisFondo}{HTML}{F7F7F7}
+\definecolor{GrisClaro}{HTML}{F0F0F0}
+\definecolor{GrisAtenuado}{HTML}{666666}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=NegroPuro,
+    citecolor=NegroPuro,
+    urlcolor=AcentoEditorial
+}
+
+\raggedbottom
+\clubpenalty=10000
+\widowpenalty=10000
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+\renewcommand{\baselinestretch}{1.15}
+
+\titleformat{\section}{\large\bfseries\color{NegroPuro}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{NegroPuro}}{\thesubsection.}{0.5em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{GrisAtenuado}\@codigo}
+\fancyhead[R]{\small\color{GrisAtenuado}\@asignatura}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newcommand{\institucion}[1]{\def\@institucion{#1}}
+\newcommand{\facultad}[1]{\def\@facultad{#1}}
+\newcommand{\asignatura}[1]{\def\@asignatura{#1}}
+\newcommand{\codigo}[1]{\def\@codigo{#1}}
+\newcommand{\titulo}[1]{\def\@titulo{#1}}
+\newcommand{\autor}[1]{\def\@autor{#1}}
+\newcommand{\periodo}[1]{\def\@periodo{#1}}
+\newcommand{\logotipo}[1]{\def\@logotipo{#1}}
+
+\institucion{Departamento de Ingenieria Mecanica}
+\facultad{Laboratorio de Diseno y Simulacion Computacional}
+\asignatura{Diseno Mecanico y Elementos de Maquinas}
+\codigo{INFORME TECNICO}
+\titulo{Memoria de Calculo y Verificacion Estructural}
+\autor{Equipo de Ingenieria}
+\periodo{2026}
+\logotipo{logo_studio.png}
+
+\newcommand{\makeengineeringcover}{%
+  \begin{titlepage}
+    \thispagestyle{empty}
+    \begin{center}
+      \vspace*{0.4cm}
+      {\fontfamily{cmr}\fontsize{15}{18}\selectfont\scshape \@institucion\par}
+      \vspace{0.3cm}
+      {\fontfamily{cmr}\fontsize{11.5}{14}\selectfont\scshape \@facultad\par}
+      \vspace{1.3cm}
+      \includegraphics[width=3.8cm, height=3.8cm, keepaspectratio]{\@logotipo}\par
+      \vspace{1.4cm}
+      {\fontsize{15}{19}\selectfont\bfseries \@titulo\par}
+      \vspace{1.4cm}
+      \begin{flushleft}
+        \textbf{Autores:} \@autor\\[0.35cm]
+        \textbf{Asignatura:} \@asignatura\\[0.35cm]
+        \textbf{Codigo:} \@codigo
+      \end{flushleft}
+      \vfill
+      {\small\color{GrisAtenuado}\@periodo\par}
+    \end{center}
+  \end{titlepage}
+  \newpage
+  \setcounter{page}{2}
+}
+
+\newtcolorbox{scibox}[1]{
+  enhanced, colback=GrisFondo, colframe=GrisBorde,
+  fonttitle=\bfseries\small\color{NegroPuro}, coltitle=NegroPuro, colbacktitle=GrisClaro,
+  boxrule=0.6pt, arc=2pt, title={#1}
+}
+
+\newtcolorbox{sciformula}[1]{
+  enhanced, colback=white, colframe=GrisBorde,
+  fonttitle=\bfseries\footnotesize\color{NegroPuro}, colbacktitle=GrisFondo,
+  boxrule=0.6pt, arc=2pt, title={#1}
+}
+
+\tikzset{
+  cota/.style={arrows={Latex[length=4pt]-Latex[length=4pt]}, line width=0.5pt, draw=black},
+  cota texto/.style={fill=white, inner sep=1.5pt, font=\footnotesize\bfseries},
+  vector carga/.style={arrows={-Latex[length=5pt]}, line width=1.1pt, draw=NegroPuro}
+}
+
+\lstdefinestyle{scistyle}{
+  basicstyle=\fontsize{8.5}{11}\ttfamily,
+  numbers=left, numberstyle=\tiny\color{GrisAtenuado},
+  backgroundcolor=\color{GrisFondo}, frame=single, rulecolor=\color{GrisBorde},
+  breaklines=true, showstringspaces=false
+}
+\lstset{style=scistyle}
+\endinput
